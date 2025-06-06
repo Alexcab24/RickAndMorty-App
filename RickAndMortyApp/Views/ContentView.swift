@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = CharacterViewModel()
-
+  
     var body: some View {
         NavigationStack {
             List(viewModel.characters) { character in
+                   
                 HStack {
                     AsyncImage(url: URL(string: character.image)) { image in
                         image.resizable()
@@ -26,7 +27,8 @@ struct ContentView: View {
                         .font(.headline)
                 }
             }
-            .navigationTitle("Personajes")
+            .navigationTitle("Characters")
+                        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "Search characters")
         }
         .task {
             await viewModel.loadCharacters()

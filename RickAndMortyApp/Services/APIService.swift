@@ -8,8 +8,9 @@
 import Foundation
 
 class APIService {
-    func fetchCharacters() async throws -> [Character] {
-        let url = URL(string: "https://rickandmortyapi.com/api/character")!
+    func fetchCharacters(_ name: String) async throws -> [Character] {
+        let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let url = URL(string: "https://rickandmortyapi.com/api/character/?name=\(encodedName)")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoded = try JSONDecoder().decode(CharacterResponse.self, from: data)
         return decoded.results

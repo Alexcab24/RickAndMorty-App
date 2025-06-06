@@ -16,3 +16,4 @@ struct Character: Identifiable, Decodable {
     let name: String
     let image: String
 }
+
