@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE84EECB2DF2787A00FC1AD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CE84EECA2DF2787500FC1AD1 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CE84EE9B2DF26E3600FC1AD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		CE84EE8A2DF26E3300FC1AD1 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84EE9A2DF26E3600FC1AD1 /* RickAndMortyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84EEA42DF26E3600FC1AD1 /* RickAndMortyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE84EECA2DF2787500FC1AD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		CE84EE812DF26E3300FC1AD1 = {
 			isa = PBXGroup;
 			children = (
+				CE84EECA2DF2787500FC1AD1 /* .gitignore */,
 				CE84EE8C2DF26E3300FC1AD1 /* RickAndMortyApp */,
 				CE84EE9D2DF26E3600FC1AD1 /* RickAndMortyAppTests */,
 				CE84EEA72DF26E3600FC1AD1 /* RickAndMortyAppUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE84EECB2DF2787A00FC1AD1 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
