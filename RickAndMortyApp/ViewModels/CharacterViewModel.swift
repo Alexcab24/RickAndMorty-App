@@ -2,44 +2,32 @@
 //  CharacterViewModel.swift
 //  RickAndMortyApp
 //
-//  Created by Alex on 5/6/25.
+//  Created by Alex on 8/6/25.
 //
 
 import Foundation
 import Combine
 
 @MainActor
-class CharacterViewModel: ObservableObject {
-    @Published var characters: [Character] = []
-    @Published var searchText: String = ""
+class CharacterDetailViewModel: ObservableObject {
+    @Published var character: Character?
+    @Published var isLoading = false
+    @Published var errorMessage: String? = nil
+
     private let api = APIService()
-    
-    
-    private var cancellables = Set<AnyCancellable>()
-       private let apiService = APIService()
 
-    
-    init() {
-           // Escuchar cambios en el texto de búsqueda con debounce
-           $searchText
-               .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
-               .removeDuplicates()
-               .sink { [weak self] text in
-                   Task {
-                       await self?.loadCharacters(name: text)
-                   }
-               }
-               .store(in: &cancellables)
-       }
+    func loadCharacter(id: Int) async {
+        isLoading = true
+        errorMessage = nil
 
-    
-    
-    
-    func loadCharacters(name: String = "") async {
         do {
-            characters = try await api.fetchCharacters(searchText)
+            let fetched = try await api.fetchCharacter(id)
+            character = fetched
         } catch {
-            print("Error: \(error)")
+            character = nil
+            errorMessage = "An error occurred while loading character."
         }
+
+        isLoading = false
     }
 }

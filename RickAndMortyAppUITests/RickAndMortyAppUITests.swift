@@ -7,6 +7,8 @@
 
 import XCTest
 
+@testable import RickAndMortyApp
+
 final class RickAndMortyAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
